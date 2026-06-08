@@ -2,9 +2,9 @@
 
 ![The Elo formula, as seen in The Social Network](imgs/elo_sn.gif)
 
-In *The Social Network*, Mark Zuckerberg builds Facemash in a single night — a site that puts two things side by side and asks one question: *which one is better?* He used Elo, the same rating system that ranks chess grandmasters. The idea was simple and kind of perfect: pairwise comparison cuts through noise and forces real opinions.
+In my favorite movie, *The Social Network*, Mark Zuckerberg builds Facemash. A site that, while very ____, demonstrates how pairwise comparisons are very powerful for ranking elements. Puts two things side by side and ask one question: *which one is better?* He used Elo, the same rating system that ranks chess players. The idea was simple and kind of perfect: pairwise comparison cuts through noise and forces real opinions.
 
-`duel` is that idea, for anything. Give it a list. It pits items against each other one at a time, updates Elo scores after each pick, and builds a ranking that reflects your actual preferences — not just vibes.
+`duel` is that idea, for anything. Give it a list. It pits items against each other one at a time, updates Elo scores after each pick, and builds a ranking that reflects your actual preferences.
 
 ---
 
@@ -53,7 +53,7 @@ Rank  Score    W      L       Item
 
 ## How it works
 
-Each item starts at **1000 Elo**. After every matchup, the winner gains points and the loser loses points — the amount depends on how surprising the result was. An upset earns more than a win everyone expected.
+Each item starts at **1000 Elo**. After every matchup, the winner gains points and the loser loses points (the amount depends on how surprising the result was). An upset earns more than a win everyone expected.
 
 Matchmaking is adaptive: items with fewer comparisons get prioritized first, then matched against whoever has the closest Elo score. This means the ranking gets smarter faster, and you don't waste comparisons on mismatches.
 
@@ -62,5 +62,7 @@ Matchmaking is adaptive: items with fewer comparisons get prioritized first, the
 ## Install
 
 ```bash
+git clone https://github.com/emaanh/duel.git
+cd duel
 cargo install --path .
 ```
