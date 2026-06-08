@@ -2,25 +2,38 @@
 
 ![The Elo formula, as seen in The Social Network](imgs/elo_sn.gif)
 
-In my favorite movie, *The Social Network*, Mark Zuckerberg builds Facemash. A site that, while very ____, demonstrates how pairwise comparisons are very powerful for ranking elements. Puts two things side by side and ask one question: *which one is better?* He used Elo, the same rating system that ranks chess players. The idea was simple and kind of perfect: pairwise comparison cuts through noise and forces real opinions.
+In my favorite movie, *The Social Network*, Mark Zuckerberg builds Facemash. A site that puts two things side by side and asks one question: *which one is better?* He used Elo, the same rating system that ranks chess players. Pairwise comparison cuts through noise and forces real opinions.
 
-`duel` is that idea, for anything. Give it a list. It pits items against each other one at a time, updates Elo scores after each pick, and builds a ranking that reflects your actual preferences.
+There are websites that do this. But I wanted something I owned: a system-wide tool where I could rank anything, save my sessions, and do it from the comfort of my terminal without opening a browser. `duel` is that.
+
+Give it a list. It pits items against each other one at a time, updates Elo scores after each pick, and builds a ranking that reflects your actual preferences. Sessions are saved automatically so you can quit and come back later.
+
+---
+
+## Install
+
+```bash
+git clone https://github.com/emaanh/duel.git
+cd duel
+cargo install --path .
+```
 
 ---
 
 ## Usage
 
 ```
-duel <file>                    # start or resume a session
-duel <file> --results          # show current rankings without dueling
-duel <file> --results -o rankings.txt  # save rankings to a file
+duel <file>                           # start or resume a session
+duel <file> --results                 # show current rankings without dueling
+duel <file> --results -o out.txt      # save rankings to a file
 ```
 
-Items are read from `<file>`, one per line. Blank lines are ignored. Progress is automatically saved alongside your input file so you can quit and pick up later.
+Items are read from `<file>`, one per line. Blank lines are ignored. Sessions are saved automatically to `~/.local/share/duel/` after every pick.
 
 **During a duel:**
 
 ```
+  ████████░░░░░░░░░░░░ 12/40 (30%)  •  least-seen item: 2 duels
 ─────────────────────────────────────────
   [1]  Inception
 
@@ -31,9 +44,9 @@ Items are read from `<file>`, one per line. Blank lines are ignored. Progress is
   Pick (1/2/s/q):
 ```
 
-- `1` or `2` — pick the winner
-- `s` — skip this matchup
-- `q` — quit and save progress
+- `1` or `2` to pick the winner
+- `s` to skip
+- `q` to quit (progress is already saved)
 
 **Rankings output:**
 
@@ -53,16 +66,6 @@ Rank  Score    W      L       Item
 
 ## How it works
 
-Each item starts at **1000 Elo**. After every matchup, the winner gains points and the loser loses points (the amount depends on how surprising the result was). An upset earns more than a win everyone expected.
+Each item starts at **1000 Elo**. After every matchup, the winner gains points and the loser loses points. The amount depends on how surprising the result was: an upset earns more than a win everyone expected.
 
-Matchmaking is adaptive: items with fewer comparisons get prioritized first, then matched against whoever has the closest Elo score. This means the ranking gets smarter faster, and you don't waste comparisons on mismatches.
-
----
-
-## Install
-
-```bash
-git clone https://github.com/emaanh/duel.git
-cd duel
-cargo install --path .
-```
+Matchmaking is adaptive. Items with fewer comparisons get prioritized first, then matched against whoever has the closest Elo score. The ranking gets smarter faster, and you can see your progress toward a complete ranking with every matchup.
