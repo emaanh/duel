@@ -1,4 +1,4 @@
-# duel - a terminal tool for ranking anything
+# duel - rank anything
 
 ![The Elo formula, as seen in The Social Network](imgs/elo_sn.gif)
 
@@ -35,11 +35,11 @@ Items are read from `<file>`, one per line. Blank lines are ignored. Sessions ar
 ```
   ████████░░░░░░░░░░░░ 12/40 (30%)  •  least-seen item: 2 duels
 ─────────────────────────────────────────
-  [1]  Inception
+  [1]  Obsession
 
             vs
 
-  [2]  The Dark Knight
+  [2]  The Social Network
 ─────────────────────────────────────────
   Pick (1/2/s/q):
 ```
