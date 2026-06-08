@@ -2,7 +2,7 @@
 
 ![The Elo formula, as seen in The Social Network](imgs/elo_sn.gif)
 
-In my favorite movie, *The Social Network*, Mark Zuckerberg builds Facemash. A site that puts two things side by side and asks one question: *which one is better?* He used Elo, the same rating system that ranks chess players. Pairwise comparison cuts through noise and forces real opinions.
+In my favorite movie, *The Social Network*, Mark Zuckerberg builds the morally questionable Facemash. But the underlying idea is hard to argue with: put two things side by side and ask one question, *which one is better?* He used Elo, the same rating system that ranks chess players. Pairwise comparison cuts through noise and forces real opinions.
 
 There are websites that do this. But I wanted something I owned: a system-wide tool where I could rank anything, save my sessions, and do it from the comfort of my terminal without opening a browser. `duel` is that.
 
