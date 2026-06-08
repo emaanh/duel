@@ -2,9 +2,9 @@
 
 ![The Elo formula, as seen in The Social Network](imgs/elo_sn.gif)
 
-In my favorite movie, *The Social Network*, Mark Zuckerberg builds the morally questionable Facemash. But the underlying idea is hard to argue with: put two things side by side and ask one question, *which one is better?* He used Elo, the same rating system that ranks chess players. Pairwise comparison cuts through noise and forces real opinions.
+In my favorite movie, *The Social Network*, Mark Zuckerberg builds Facemash, a tasteless but effective demonstration of ranking elements through 1v1 duels. He used the Elo rating system (shown in the gif above), the same rating system that ranks chess players. This was my introduction to pairwise comparison, and since then I've used it to cut through noise when ranking elements.
 
-There are websites that do this. But I wanted something I owned: a system-wide tool where I could rank anything, save my sessions, and do it from the comfort of my terminal without opening a browser. `duel` is that.
+Before making `duel`, I used websites that do this. But I wanted a system-wide tool where I could save my sessions, and do it from the comfort of my terminal without opening a browser. `duel` is that.
 
 Give it a list. It pits items against each other one at a time, updates Elo scores after each pick, and builds a ranking that reflects your actual preferences. Sessions are saved automatically so you can quit and come back later.
 
