@@ -1,4 +1,4 @@
-# duel
+# duel - a terminal tool for ranking anything
 
 ![The Elo formula, as seen in The Social Network](imgs/elo_sn.gif)
 
